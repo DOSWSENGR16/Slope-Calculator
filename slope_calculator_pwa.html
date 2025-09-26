@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Slope Calc">
+    <meta name="theme-color" content="#2563eb">
+    <title>Slope Calculator</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlNsb3BlIENhbGN1bGF0b3IiLAogICJzaG9ydF9uYW1lIjogIlNsb3BlIENhbGMiLAogICJkZXNjcmlwdGlvbiI6ICJVbml2ZXJzYWwgU2xvcGUgQ2FsY3VsYXRvciBmb3IgQ2l2aWwgRW5naW5lZXJpbmciLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiI2Y1ZjVmNSIsCiAgInRoZW1lX2NvbG9yIjogIiMyNTYzZWIiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSGRwWkhSb1BTSXhNamt5SWlCb1pXbG5hSFE5SWpFeU9USWlJSFpwWlhkQ2IzZzlJakFnTUNBeE1qa3lJREV5T1RJaVBnbzhkR2wwYkdVK1UyeHZjR1VnUTJGc1kyVWpXVU05SUVOeWFYUi9QQzkwYVhSc1pUNDhjR0YwYUNCa1BTSnRNVFk0TERZME5DMDFNVEl1TnpNdE56SWlJR1pwYkd3OUlpTXlOVFl6WldJaVBqeDBaWGgwSUhnOUlqSXdJaUI1UFNJMklpQm1hV3hzUFNJak1ESTFNRE15SWlCbWIyNTBMWE5wZW1VOUlqUTRJaUJtYjI1MExYZGxhV2RvZEQwaVltOXNaQ0krVEc5bFpuZGhkRzU5UEM5MFpYaDBQand2Y0dGMGFENDhjR0YwYUNCa1BTSnRNekl5TGpBMExqSXdMaTAxTWpRdU5EWWlJR1pwYkd3OUlpTXlOVFl6WldJaVBqeDBaWGgwSUhnOUlqSXdJaUI1UFNJeE1USWlJR1pwYkd3OUlpTTJNMlE0WkRNaVBrZHlaV0ZrUlc1blpXVTU5UEM5MFpYaDBQand2Y0dGMGFENDhMM04yWno0PSIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhkcFpIUm9QU0l4TWprNElpQm9aV2xuYUhROUlqRXlPVGdpSUhacFpYZENiM2c5SWpBZ01DQXhNamswSURFeU9UZ2lQZ280ZEdsMGJHVStVMnh2Y0dVZ1EyRnNZelltV1VNOWFFTnNhV01uV1VNOUlFTnlhWFFqUEM5MGFYUnNaVDQ4Y0dGMGFDQmtQU0p0TVRZNExqQTJORFEtTlRFeUxqY3pMVGN5SWlCbWFXeHNQU0lqTWpVMk0yVmlJajQ4ZEdWNGRDQjRQU0l5TUNJZ2VUMGlOaUlnWm1sc2JEMGlJekF5TlRBek1pSWdabTl1ZEMxemFYcGxQU0kwT0NJZ1ptOXVkQzEzWldsbmFIUTlJbUp2YkdRaVBreFZaV1ozWVhSdWVUMDlQQzkwWlhoMFBqd3ZjR0YwYUQ0OGNHRjBhQ0JrUFNKdE16SXlMakEwTGpJd0xqVXlOQzQwTmlJZ1ptbHNiRDBpSXpJMU5qTmxZaUkrUEhSbGVIUWdlRDBpTWpBaUlIazlJakV4TWlJZ1ptbHNiRDBpSXpZelpEaGtNeUkrUjNKbFlXUkZibWRsWlQ0OVBDOTBaWGgwUGp3dmNHRjBhRDQ4TDNOMlp6ND0iLAogICAgICAic2l6ZXMiOiAiMTkyeDE5MiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiCiAgICB9CiAgXQp9">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiB2aWV3Qm94PSIwIDAgMTkyIDE5MiI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMjU2M2ViIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzEwNzNkNyIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiBmaWxsPSJ1cmwoI2EpIiByeD0iMzYiLz4KPHN2ZyB4PSI0OCIgeT0iNDgiIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiI+Cjx0ZXh0IHg9IjQ4IiB5PSI2NCIgZmlsbD0id2hpdGUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWkiIGZvbnQtc2l6ZT0iNDQiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TPC90ZXh0Pgo8L3N2Zz4KPC9zdmc+">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f5f5;
+            padding: env(safe-area-inset-top, 0) 16px env(safe-area-inset-bottom, 0) 16px;
+            padding-top: max(env(safe-area-inset-top, 0px), 20px);
+            overflow-x: hidden;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        input, button {
+            -webkit-user-select: text;
+            user-select: text;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .tab-nav {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .tab-button {
+            padding: 10px 12px;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #e5e7eb;
+            color: #374151;
+            font-size: 14px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            min-height: 44px;
+        }
+        
+        .tab-button:active {
+            background: #d1d5db;
+            transform: scale(0.98);
+        }
+        
+        .tab-button.active {
+            background: #2563eb;
+            color: white;
+            border-bottom: 2px solid #2563eb;
+        }
+        
+        .tab-content {
+            background: white;
+            padding: 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+        }
+        
+        .tab-panel {
+            display: none;
+        }
+        
+        .tab-panel.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        .solver-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .clear-button {
+            padding: 8px 16px;
+            font-size: 14px;
+            background: #e5e7eb;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 44px;
+        }
+        
+        .clear-button:active {
+            background: #d1d5db;
+            transform: scale(0.95);
+        }
+        
+        .toggle-button {
+            font-size: 12px;
+            background: #dbeafe;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 32px;
+        }
+        
+        .toggle-button:active {
+            background: #bfdbfe;
+            transform: scale(0.95);
+        }
+        
+        .grid {
+            display: grid;
+            gap: 16px;
+        }
+        
+        .grid-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .grid-4 {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        @media (min-width: 480px) {
+            .grid-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .field-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .field-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            min-height: 24px;
+        }
+        
+        .solve-radio {
+            margin: 0;
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+        
+        .solve-label {
+            font-size: 12px;
+            color: #10b981;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        .input-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+        
+        .input-container {
+            display: flex;
+            position: relative;
+            width: 100%;
+        }
+        
+        .input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            min-height: 44px;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        .input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+        
+        .input.target-field {
+            border: 2px solid #10b981;
+            background-color: #f0fdf4;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+        }
+        
+        .clear-field-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ef4444;
+            color: white;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .clear-field-btn:active {
+            background: #dc2626;
+            transform: translateY(-50%) scale(0.9);
+        }
+        
+        .input-field:hover .clear-field-btn,
+        .input:not(:placeholder-shown) + .clear-field-btn {
+            display: flex;
+        }
+        
+        .input-unit {
+            margin-left: 8px;
+            padding: 10px 12px;
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-left: none;
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            color: #6b7280;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .formula-note {
+            margin-top: 16px;
+            padding: 12px;
+            background: #eff6ff;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #1e40af;
+        }
+        
+        .results {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .results.show {
+            display: block;
+        }
+        
+        .results h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1f2937;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        
+        @media (min-width: 480px) {
+            .results-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 4px 0;
+        }
+        
+        .result-label {
+            color: #6b7280;
+            font-size: 14px;
+        }
+        
+        .result-value {
+            font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .notes {
+            margin-top: 20px;
+            padding: 16px;
+            background: #eff6ff;
+            border-radius: 8px;
+        }
+        
+        .notes h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+        
+        .notes ul {
+            list-style: none;
+            color: #1d4ed8;
+        }
+        
+        .notes li {
+            font-size: 13px;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+        
+        .max-width-md {
+            max-width: 100%;
+        }
+        
+        /* Install prompt styles */
+        .install-prompt {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: #2563eb;
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .install-prompt.show {
+            display: block;
+        }
+        
+        .install-prompt-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .install-prompt button {
+            background: white;
+            color: #2563eb;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            min-height: 44px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Slope Calculator</h1>
+        
+        <div class="tab-nav">
+            <button class="tab-button active" data-tab="solver">Universal Solver</button>
+            <button class="tab-button" data-tab="points">Two Points</button>
+            <button class="tab-button" data-tab="riserun">Rise/Run</button>
+            <button class="tab-button" data-tab="gradeangle">Grade/Angle</button>
+        </div>
+        
+        <div class="tab-content">
+            <!-- Universal Solver Tab -->
+            <div class="tab-panel active" id="solver">
+                <div class="solver-header">
+                    <h2>Universal Solver</h2>
+                    <button class="clear-button" onclick="clearAll()">Clear All</button>
+                </div>
+                <div class="grid grid-4">
+                    <div class="field-container">
+                        <div class="field-header">
+                            <input type="radio" name="solveFor" value="length" id="solve-length" class="solve-radio" onchange="setTargetField('length')">
+                            <label for="solve-length" class="solve-label">Solve for</label>
+                        </div>
+                        <label class="input-label">Length</label>
+                        <div class="input-container">
+                            <input type="number" class="input" id="length" placeholder="Enter length" step="any">
+                            <button class="clear-field-btn" onclick="clearField('length')" title="Clear and solve for Length">×</button>
+                        </div>
+                    </div>
+                    <div class="field-container">
+                        <div class="field-header">
+                            <input type="radio" name="solveFor" value="grade" id="solve-grade" class="solve-radio" onchange="setTargetField('grade')">
+                            <label for="solve-grade" class="solve-label">Solve for</label>
+                            <button onclick="toggleGradeType()" class="toggle-button" style="margin-left: auto;">
+                                <span id="toggle-text">%</span>
+                            </button>
+                        </div>
+                        <label class="input-label">Grade (<span id="grade-type">decimal</span>)</label>
+                        <div class="input-container">
+                            <input type="number" class="input" id="grade" placeholder="0.02 = 2%" step="any">
+                            <span class="input-unit" id="grade-unit" style="display: none;">%</span>
+                            <button class="clear-field-btn" onclick="clearField('grade')" title="Clear and solve for Grade">×</button>
+                        </div>
+                    </div>
+                    <div class="field-container">
+                        <div class="field-header">
+                            <input type="radio" name="solveFor" value="startElev" id="solve-startElev" class="solve-radio" onchange="setTargetField('startElev')">
+                            <label for="solve-startElev" class="solve-label">Solve for</label>
+                        </div>
+                        <label class="input-label">Start Elevation</label>
+                        <div class="input-container">
+                            <input type="number" class="input" id="startElev" placeholder="Enter start elev" step="any">
+                            <button class="clear-field-btn" onclick="clearField('startElev')" title="Clear and solve for Start Elevation">×</button>
+                        </div>
+                    </div>
+                    <div class="field-container">
+                        <div class="field-header">
+                            <input type="radio" name="solveFor" value="endElev" id="solve-endElev" class="solve-radio" onchange="setTargetField('endElev')">
+                            <label for="solve-endElev" class="solve-label">Solve for</label>
+                        </div>
+                        <label class="input-label">End Elevation</label>
+                        <div class="input-container">
+                            <input type="number" class="input" id="endElev" placeholder="Enter end elev" step="any">
+                            <button class="clear-field-btn" onclick="clearField('endElev')" title="Clear and solve for End Elevation">×</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="formula-note">
+                    <strong>Formula:</strong> Length × Grade = Elevation Change | Elevation Change = End Elevation - Start Elevation
+                </div>
+            </div>
+            
+            <!-- Two Points Tab -->
+            <div class="tab-panel" id="points">
+                <h2>Calculate slope between two points</h2>
+                <div class="grid grid-2">
+                    <div>
+                        <h3>Point 1</h3>
+                        <div class="input-field">
+                            <label class="input-label">X1</label>
+                            <input type="number" class="input" id="x1" placeholder="0.00" step="any">
+                        </div>
+                        <div class="input-field">
+                            <label class="input-label">Y1</label>
+                            <input type="number" class="input" id="y1" placeholder="0.00" step="any">
+                        </div>
+                        <div class="input-field">
+                            <label class="input-label">Z1 (Elevation)</label>
+                            <input type="number" class="input" id="z1" placeholder="Leave blank to use Y1" step="any">
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Point 2</h3>
+                        <div class="input-field">
+                            <label class="input-label">X2</label>
+                            <input type="number" class="input" id="x2" placeholder="0.00" step="any">
+                        </div>
+                        <div class="input-field">
+                            <label class="input-label">Y2</label>
+                            <input type="number" class="input" id="y2" placeholder="0.00" step="any">
+                        </div>
+                        <div class="input-field">
+                            <label class="input-label">Z2 (Elevation)</label>
+                            <input type="number" class="input" id="z2" placeholder="Leave blank to use Y2" step="any">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rise/Run Tab -->
+            <div class="tab-panel" id="riserun">
+                <h2>Calculate slope from rise and run</h2>
+                <div class="grid grid-2">
+                    <div class="input-field">
+                        <label class="input-label">Rise (Vertical)</label>
+                        <input type="number" class="input" id="rise" placeholder="0.00" step="any">
+                    </div>
+                    <div class="input-field">
+                        <label class="input-label">Run (Horizontal)</label>
+                        <input type="number" class="input" id="run" placeholder="0.00" step="any">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Grade/Angle Tab -->
+            <div class="tab-panel" id="gradeangle">
+                <h2>Grade/Angle Converter</h2>
+                <div class="max-width-md">
+                    <div class="input-field">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                            <label class="input-label">Input (<span id="gradeangle-type">Grade %</span>)</label>
+                            <button onclick="toggleGradeAngleType()" class="toggle-button">
+                                Switch to <span id="gradeangle-toggle-text">Angle</span>
+                            </button>
+                        </div>
+                        <div class="input-container">
+                            <input type="number" class="input" id="gradeAngleValue" placeholder="2.0 = 2%" step="any">
+                            <span class="input-unit" id="gradeangle-unit">%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="results" id="results">
+            <h3>Results</h3>
+            <div class="results-grid" id="results-content">
+                <!-- Results will be populated by JavaScript -->
+            </div>
+        </div>
+        
+        <div class="notes">
+            <h3>Notes:</h3>
+            <ul>
+                <li>• <strong>Universal Solver:</strong> Check the "Solve for" radio button to designate target field (highlighted in green)</li>
+                <li>• Enter values in the other 3 fields to automatically calculate the target field</li>
+                <li>• All values rounded to 2 decimal places</li>
+                <li>• Formula: Length × Grade = Elevation Change</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Install prompt for PWA -->
+    <div class="install-prompt" id="installPrompt">
+        <div class="install-prompt-content">
+            <div>
+                <strong>Install Slope Calculator</strong><br>
+                <small>Add to home screen for offline use</small>
+            </div>
+            <div>
+                <button onclick="installApp()">Install</button>
+                <button onclick="dismissInstall()" style="background: transparent; color: white; margin-left: 8px;">Dismiss</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State variables
+        let activeTab = 'solver';
+        let gradeIsPercent = false;
+        let gradeAngleIsPercent = true;
+        let targetField = null;
+        let calculationTimeout = null;
+        
+        // PWA variables
+        let deferredPrompt;
+        
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('data:application/javascript;base64,Y29uc3QgQ0FDSEVfTkFNRSA9ICdzbG9wZS1jYWxjLXYxJzsKY29uc3QgdXJsc1RvQ2FjaGUgPSBbCiAgJy4vJwpdOwoKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgZnVuY3Rpb24oZXZlbnQpIHsKICBldmVudC53YWl0VW50aWwoY2FjaGVzLm9wZW4oQ0FDSEVfTkFNRSkudGhlbihmdW5jdGlvbihjYWNoZSkgewogICAgcmV0dXJuIGNhY2hlLmFkZEFsbCh1cmxzVG9DYWNoZSk7CiAgfSkpOwp9KTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignZmV0Y2gnLCBmdW5jdGlvbihldmVudCkgewogIGV2ZW50LnJlc3BvbmRXaXRoKGNhY2hlcy5tYXRjaChldmVudC5yZXF1ZXN0KS50aGVuKGZ1bmN0aW9uKHJlc3BvbnNlKSB7CiAgICBpZiAocmVzcG9uc2UpIHsKICAgICAgcmV0dXJuIHJlc3BvbnNlOwogICAgfQogICAgcmV0dXJuIGZldGNoKGV2ZW50LnJlcXVlc3QpOwogIH0pKTsKfSk7')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    }, function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+        
+        // PWA Install prompt
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            document.getElementById('installPrompt').classList.add('show');
+        });
+        
+        function installApp() {
+            const installPrompt = document.getElementById('installPrompt');
+            installPrompt.classList.remove('show');
+            
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    deferredPrompt = null;
+                });
+            } else {
+                // Fallback for Safari
+                alert('To install: tap the Share button, then "Add to Home Screen"');
+            }
+        }
+        
+        function dismissInstall() {
+            document.getElementById('installPrompt').classList.remove('show');
+            deferredPrompt = null;
+        }
+        
+        // Tab switching
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const tab = this.getAttribute('data-tab');
+                switchTab(tab);
+            });
+        });
+        
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+            
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+            
+            activeTab = tab;
+            calculate();
+        }
+        
+        // Add event listeners to all inputs
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', function() {
+                if (calculationTimeout) {
+                    clearTimeout(calculationTimeout);
+                }
+                
+                calculationTimeout = setTimeout(() => {
+                    calculate();
+                }, 300);
+            });
+        });
+        
+        function setTargetField(fieldId) {
+            document.querySelectorAll('#length, #grade, #startElev, #endElev').forEach(input => {
+                input.classList.remove('target-field');
+            });
+            
+            targetField = fieldId;
+            document.getElementById(fieldId).classList.add('target-field');
+            document.getElementById('solve-' + fieldId).checked = true;
+            
+            calculate();
+        }
+        
+        function clearField(fieldId) {
+            document.getElementById(fieldId).value = '';
+            setTargetField(fieldId);
+            document.getElementById(fieldId).focus();
+        }
+        
+        function clearAll() {
+            document.getElementById('length').value = '';
+            document.getElementById('grade').value = '';
+            document.getElementById('startElev').value = '';
+            document.getElementById('endElev').value = '';
+            targetField = null;
+            
+            document.querySelectorAll('#length, #grade, #startElev, #endElev').forEach(input => {
+                input.classList.remove('target-field');
+            });
+            
+            document.querySelectorAll('input[name="solveFor"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            calculate();
+        }
+        
+        function toggleGradeAngleType() {
+            gradeAngleIsPercent = !gradeAngleIsPercent;
+            const typeSpan = document.getElementById('gradeangle-type');
+            const toggleTextSpan = document.getElementById('gradeangle-toggle-text');
+            const unitSpan = document.getElementById('gradeangle-unit');
+            const input = document.getElementById('gradeAngleValue');
+            
+            if (gradeAngleIsPercent) {
+                typeSpan.textContent = 'Grade %';
+                toggleTextSpan.textContent = 'Angle';
+                unitSpan.textContent = '%';
+                input.placeholder = '2.0 = 2%';
+            } else {
+                typeSpan.textContent = 'Angle °';
+                toggleTextSpan.textContent = 'Grade %';
+                unitSpan.textContent = '°';
+                input.placeholder = '1.15 degrees';
+            }
+            
+            calculate();
+        }
+        
+        function toggleGradeType() {
+            gradeIsPercent = !gradeIsPercent;
+            const gradeTypeSpan = document.getElementById('grade-type');
+            const toggleTextSpan = document.getElementById('toggle-text');
+            const gradeUnitSpan = document.getElementById('grade-unit');
+            const gradeInput = document.getElementById('grade');
+            
+            if (gradeIsPercent) {
+                gradeTypeSpan.textContent = 'percentage';
+                toggleTextSpan.textContent = 'decimal';
+                gradeUnitSpan.style.display = 'flex';
+                gradeInput.placeholder = '2.0 = 2%';
+            } else {
+                gradeTypeSpan.textContent = 'decimal';
+                toggleTextSpan.textContent = '%';
+                gradeUnitSpan.style.display = 'none';
+                gradeInput.placeholder = '0.02 = 2%';
+            }
+            
+            calculate();
+        }
+        
+        function calculate() {
+            const resultsDiv = document.getElementById('results');
+            let hasValidInput = false;
+            
+            if (activeTab === 'solver') {
+                hasValidInput = calculateSolver();
+            } else if (activeTab === 'points') {
+                hasValidInput = calculateFromPoints();
+            } else if (activeTab === 'riserun') {
+                hasValidInput = calculateFromRiseRun();
+            } else if (activeTab === 'gradeangle') {
+                hasValidInput = calculateFromGradeAngle();
+            }
+            
+            if (hasValidInput) {
+                resultsDiv.classList.add('show');
+            } else {
+                resultsDiv.classList.remove('show');
+            }
+        }
+        
+        function calculateSolver() {
+            const lengthVal = document.getElementById('length').value;
+            const gradeVal = document.getElementById('grade').value;
+            const startElevVal = document.getElementById('startElev').value;
+            const endElevVal = document.getElementById('endElev').value;
+            
+            const L = parseFloat(lengthVal);
+            let G = parseFloat(gradeVal);
+            
+            if (!isNaN(G) && gradeIsPercent) {
+                G = G / 100;
+            }
+            
+            const SE = parseFloat(startElevVal);
+            const EE = parseFloat(endElevVal);
+            
+            if (targetField) {
+                const inputValues = {
+                    'length': L,
+                    'grade': G,
+                    'startElev': SE,
+                    'endElev': EE
+                };
+                
+                delete inputValues[targetField];
+                const validInputs = Object.values(inputValues).filter(val => !isNaN(val)).length;
+                
+                if (validInputs === 3) {
+                    if (targetField === 'length' && !isNaN(G) && !isNaN(SE) && !isNaN(EE)) {
+                        const elevChange = EE - SE;
+                        if (G !== 0) {
+                            const calcLength = Math.abs(elevChange / G);
+                            document.getElementById('length').value = calcLength.toFixed(2);
+                        }
+                    } else if (targetField === 'grade' && !isNaN(L) && !isNaN(SE) && !isNaN(EE)) {
+                        const elevChange = EE - SE;
+                        if (L !== 0) {
+                            const calcGrade = elevChange / L;
+                            const displayGrade = gradeIsPercent ? (calcGrade * 100) : calcGrade;
+                            document.getElementById('grade').value = displayGrade.toFixed(2);
+                        }
+                    } else if (targetField === 'startElev' && !isNaN(L) && !isNaN(G) && !isNaN(EE)) {
+                        const calcStartElev = EE - (L * G);
+                        document.getElementById('startElev').value = calcStartElev.toFixed(2);
+                    } else if (targetField === 'endElev' && !isNaN(L) && !isNaN(G) && !isNaN(SE)) {
+                        const calcEndElev = SE + (L * G);
+                        document.getElementById('endElev').value = calcEndElev.toFixed(2);
+                    }
+                }
+            } else {
+                const filledFields = [lengthVal, gradeVal, startElevVal, endElevVal].filter(val => val !== '').length;
+                
+                if (filledFields === 3) {
+                    if (lengthVal === '' && !isNaN(G) && !isNaN(SE) && !isNaN(EE)) {
+                        const elevChange = EE - SE;
+                        if (G !== 0) {
+                            const calcLength = Math.abs(elevChange / G);
+                            document.getElementById('length').value = calcLength.toFixed(2);
+                            setTargetField('length');
+                        }
+                    } else if (gradeVal === '' && !isNaN(L) && !isNaN(SE) && !isNaN(EE)) {
+                        const elevChange = EE - SE;
+                        if (L !== 0) {
+                            const calcGrade = elevChange / L;
+                            const displayGrade = gradeIsPercent ? (calcGrade * 100) : calcGrade;
+                            document.getElementById('grade').value = displayGrade.toFixed(2);
+                            setTargetField('grade');
+                        }
+                    } else if (startElevVal === '' && !isNaN(L) && !isNaN(G) && !isNaN(EE)) {
+                        const calcStartElev = EE - (L * G);
+                        document.getElementById('startElev').value = calcStartElev.toFixed(2);
+                        setTargetField('startElev');
+                    } else if (endElevVal === '' && !isNaN(L) && !isNaN(G) && !isNaN(SE)) {
+                        const calcEndElev = SE + (L * G);
+                        document.getElementById('endElev').value = calcEndElev.toFixed(2);
+                        setTargetField('endElev');
+                    }
+                }
+            }
+            
+            return displayCurrentResults();
+        }
+        
+        function displayCurrentResults() {
+            const finalL = parseFloat(document.getElementById('length').value);
+            let finalG = parseFloat(document.getElementById('grade').value);
+            
+            if (!isNaN(finalG) && gradeIsPercent) {
+                finalG = finalG / 100;
+            }
+            
+            const finalSE = parseFloat(document.getElementById('startElev').value);
+            const finalEE = parseFloat(document.getElementById('endElev').value);
+            
+            const finalValues = [finalL, finalG, finalSE, finalEE].filter(val => !isNaN(val));
+            
+            if (finalValues.length < 3) {
+                return false;
+            }
+            
+            let results = {
+                length: !isNaN(finalL) ? finalL.toFixed(2) : null,
+                grade: !isNaN(finalG) ? finalG.toFixed(4) : null,
+                gradePercent: !isNaN(finalG) ? (finalG * 100).toFixed(2) : null,
+                startElev: !isNaN(finalSE) ? finalSE.toFixed(2) : null,
+                endElev: !isNaN(finalEE) ? finalEE.toFixed(2) : null,
+                elevChange: null,
+                degrees: !isNaN(finalG) ? (Math.atan(finalG) * (180 / Math.PI)).toFixed(2) : null,
+                ratio: !isNaN(finalG) && finalG !== 0 ? `1:${Math.abs(1/finalG).toFixed(2)}` : null
+            };
+            
+            if (!isNaN(finalSE) && !isNaN(finalEE)) {
+                const elevChange = finalEE - finalSE;
+                results.elevChange = elevChange.toFixed(2);
+            }
+            
+            displaySolverResults(results);
+            return true;
+        }
+        
+        function displaySolverResults(results) {
+            const content = document.getElementById('results-content');
+            
+            let html = '<div>';
+            if (results.length) html += `<div class="result-row"><span class="result-label">Length:</span><span class="result-value">${results.length}</span></div>`;
+            if (results.grade) html += `<div class="result-row"><span class="result-label">Grade (decimal):</span><span class="result-value">${results.grade}</span></div>`;
+            if (results.gradePercent) html += `<div class="result-row"><span class="result-label">Grade (%):</span><span class="result-value">${results.gradePercent}%</span></div>`;
+            if (results.degrees) html += `<div class="result-row"><span class="result-label">Angle (°):</span><span class="result-value">${results.degrees}°</span></div>`;
+            if (results.ratio) html += `<div class="result-row"><span class="result-label">Ratio:</span><span class="result-value">${results.ratio}</span></div>`;
+            html += '</div><div>';
+            if (results.startElev) html += `<div class="result-row"><span class="result-label">Start Elevation:</span><span class="result-value">${results.startElev}</span></div>`;
+            if (results.endElev) html += `<div class="result-row"><span class="result-label">End Elevation:</span><span class="result-value">${results.endElev}</span></div>`;
+            if (results.elevChange) html += `<div class="result-row"><span class="result-label">Elevation Change:</span><span class="result-value">${results.elevChange}</span></div>`;
+            html += '</div>';
+            
+            content.innerHTML = html;
+        }
+        
+        function calculateFromPoints() {
+            const x1 = parseFloat(document.getElementById('x1').value);
+            const y1 = parseFloat(document.getElementById('y1').value);
+            const z1 = parseFloat(document.getElementById('z1').value) || y1;
+            const x2 = parseFloat(document.getElementById('x2').value);
+            const y2 = parseFloat(document.getElementById('y2').value);
+            const z2 = parseFloat(document.getElementById('z2').value) || y2;
+            
+            if (isNaN(x1) || isNaN(y1) || isNaN(x2) || isNaN(y2)) {
+                return false;
+            }
+            
+            const horizontalDistance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+            const verticalDistance = z2 - z1;
+            
+            if (horizontalDistance === 0) return false;
+            
+            const slope = verticalDistance / horizontalDistance;
+            const percentage = slope * 100;
+            const degrees = Math.atan(slope) * (180 / Math.PI);
+            const ratio = slope !== 0 ? `1:${Math.abs(1/slope).toFixed(2)}` : 'Undefined';
+            
+            displayStandardResults(slope, percentage, degrees, ratio, {
+                horizontalDistance: horizontalDistance.toFixed(2),
+                verticalDistance: verticalDistance.toFixed(2)
+            });
+            
+            return true;
+        }
+        
+        function calculateFromRiseRun() {
+            const rise = parseFloat(document.getElementById('rise').value);
+            const run = parseFloat(document.getElementById('run').value);
+            
+            if (isNaN(rise) || isNaN(run) || run === 0) {
+                return false;
+            }
+            
+            const slope = rise / run;
+            const percentage = slope * 100;
+            const degrees = Math.atan(slope) * (180 / Math.PI);
+            const ratio = slope !== 0 ? `1:${Math.abs(run/rise).toFixed(2)}` : 'Undefined';
+            
+            displayStandardResults(slope, percentage, degrees, ratio);
+            return true;
+        }
+        
+        function calculateFromGradeAngle() {
+            const value = parseFloat(document.getElementById('gradeAngleValue').value);
+            
+            if (isNaN(value)) {
+                return false;
+            }
+            
+            let slope, percentage, degrees, ratio;
+            
+            if (gradeAngleIsPercent) {
+                percentage = value;
+                slope = value / 100;
+                degrees = Math.atan(slope) * (180 / Math.PI);
+                ratio = slope !== 0 ? `1:${Math.abs(100/value).toFixed(2)}` : 'Undefined';
+            } else {
+                degrees = value;
+                const radians = value * (Math.PI / 180);
+                slope = Math.tan(radians);
+                percentage = slope * 100;
+                ratio = slope !== 0 ? `1:${Math.abs(1/slope).toFixed(2)}` : 'Undefined';
+            }
+            
+            displayStandardResults(slope, percentage, degrees, ratio);
+            return true;
+        }
+        
+        function displayStandardResults(slope, percentage, degrees, ratio, extra = null) {
+            const content = document.getElementById('results-content');
+            
+            let html = '<div>';
+            html += `<div class="result-row"><span class="result-label">Decimal Slope:</span><span class="result-value">${slope.toFixed(4)}</span></div>`;
+            html += `<div class="result-row"><span class="result-label">Grade (%):</span><span class="result-value">${percentage.toFixed(2)}%</span></div>`;
+            html += `<div class="result-row"><span class="result-label">Angle (°):</span><span class="result-value">${degrees.toFixed(2)}°</span></div>`;
+            html += `<div class="result-row"><span class="result-label">Ratio:</span><span class="result-value">${ratio}</span></div>`;
+            html += '</div>';
+            
+            if (extra) {
+                html += '<div>';
+                if (extra.horizontalDistance) html += `<div class="result-row"><span class="result-label">Horizontal Distance:</span><span class="result-value">${extra.horizontalDistance}</span></div>`;
+                if (extra.verticalDistance) html += `<div class="result-row"><span class="result-label">Vertical Distance:</span><span class="result-value">${extra.verticalDistance}</span></div>`;
+                html += '</div>';
+            }
+            
+            content.innerHTML = html;
+        }
+        
+        // Initial calculation
+        calculate();
+    </script>
+</body>
+</html>
